@@ -18,6 +18,6 @@ for img_path in all_images:
             dest_file_name = f"{file_name}_{i + 1}_{augmentor.type}.jpg"
             augmented = augmentor.transform_image()
             new_image = augmented["image"]
-            cv2.imwrite(f"augmented_images{os.sep}{dest_file_name}", new_image)
+            cv2.imwrite(f"{augmentor.type}_augmented_images{os.sep}{dest_file_name}", new_image)
     break
 
