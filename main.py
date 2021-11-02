@@ -11,7 +11,7 @@ if not os.path.exists("./hard_augmented_images"):
         os.makedirs("./hard_augmented_images")
 
 
-all_images = glob.glob("ornekler/*.jpg")
+all_images = glob.glob("examples/*.jpg")
 transform_type = {1: "soft", 2: "medium", 3: "hard"}
 image_per_type = 5
 
