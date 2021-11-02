@@ -2,12 +2,14 @@ import albumentations as A
 import warnings
 
 class Augmentor:
+    """Image augmentation class for Computer Vision classification problems"""
 
     def __init__(self, t_type="soft"):
         self.type = t_type
         self.transform = self.get_transform()
 
     def get_transform(self):
+        """Augment images for desired change level (soft-medium-hard) """
         if self.type == "soft":
             return A.Compose(
                 [
@@ -88,5 +90,6 @@ class Augmentor:
             warnings.warn(
                 "There is not any transformation on image")
             return A.Compose([A.RGBShift(r_shift_limit=0, g_shift_limit=0, b_shift_limit=0, p=0.0)])
-    def transform_image(self,image):
+    def transform_image(self,image)->dict:
+        """Augment images with corresponding hardness level transformations"""
         return self.transform(image=image)
