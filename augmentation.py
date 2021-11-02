@@ -3,8 +3,7 @@ import warnings
 
 class Augmentor:
 
-    def __init__(self, image, t_type="soft"):
-        self.image = image
+    def __init__(self, t_type="soft"):
         self.type = t_type
         self.transform = self.get_transform()
 
@@ -89,5 +88,5 @@ class Augmentor:
             warnings.warn(
                 "There is not any transformation on image")
             return A.Compose([A.RGBShift(r_shift_limit=0, g_shift_limit=0, b_shift_limit=0, p=0.0)])
-    def transform_image(self):
-        return self.transform(image=self.image)
+    def transform_image(self,image):
+        return self.transform(image=image)
