@@ -3,7 +3,7 @@ import os
 import cv2
 from augmentation import Augmentor
 
-#create a output directories
+# create a output directories
 if not os.path.exists("./soft_augmented_images"):
     os.makedirs("./soft_augmented_images")
 if not os.path.exists("./medium_augmented_images"):
@@ -25,4 +25,5 @@ for img_path in all_images:
             dest_file_name = f"{file_name}_{i + 1}_{augmentor.type}.jpg"
             augmented = augmentor.transform_image(img)  # transform image
             new_image = augmented["image"]  # because of return value is dictionary
-            cv2.imwrite(f"{augmentor.type}_augmented_images{os.sep}{dest_file_name}", new_image)  # save new image to destination folder
+            cv2.imwrite(f"{augmentor.type}_augmented_images{os.sep}{dest_file_name}",
+                        new_image)  # save new image to destination folder
